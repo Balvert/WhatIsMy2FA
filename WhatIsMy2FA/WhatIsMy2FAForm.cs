@@ -23,6 +23,7 @@ public partial class WhatIsMy2FAForm : Form
     private bool _isDirty = false;
 
     private BindingList<Container2FA> QRCodes = new BindingList<Container2FA>();
+    private System.Windows.Forms.Timer RefreshTimer;
 
     public WhatIsMy2FAForm()
     {
@@ -30,6 +31,7 @@ public partial class WhatIsMy2FAForm : Form
 
         FormTitle = this.Text;
         CodesListBox.DataSource = QRCodes;
+        RefreshTimer = new System.Windows.Forms.Timer();
     }
 
     private bool SaveFileAs()
@@ -143,6 +145,29 @@ public partial class WhatIsMy2FAForm : Form
 
         UpdateFormTitle();
         UpdateMenu();
+
+        RefreshTimer.Interval = 1000;
+        RefreshTimer.Tick += (s, args) =>
+        {
+            try
+            {
+                bool refresh = false;
+                foreach (var qrCode in QRCodes)
+                {
+                    if (qrCode.Refresh()) refresh = true;
+                }
+
+                if (refresh)
+                {
+                    CodesListBox.BeginUpdate();
+                    QRCodes.ResetBindings();
+                    CodesListBox.EndUpdate();
+                }
+            } 
+            catch { }
+        };
+
+        RefreshTimer.Start();
     }
 
     /// <summary>
@@ -181,6 +206,9 @@ public partial class WhatIsMy2FAForm : Form
                 e.Cancel = true;
             }
         }
+
+        if (e.Cancel) 
+            RefreshTimer.Stop();
     }
 
     private void AddQRCodeMenuItem_Click(object sender, EventArgs e)
