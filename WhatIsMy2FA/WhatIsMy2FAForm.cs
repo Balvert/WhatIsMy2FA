@@ -125,6 +125,13 @@ public partial class WhatIsMy2FAForm : Form
         SaveFileMenuItem.Enabled = QRCodes.Count > 0;
     }
 
+    private void AboutMenuItem_Click(object sender, EventArgs e)
+    {
+        using var f = new AboutForm();
+        f.ShowDialog(this);
+    }
+
+
     #region Event Handlers
     /// <summary>
     /// OnShown loads the last saved file if exists.
@@ -163,7 +170,7 @@ public partial class WhatIsMy2FAForm : Form
                     QRCodes.ResetBindings();
                     CodesListBox.EndUpdate();
                 }
-            } 
+            }
             catch { }
         };
 
@@ -207,7 +214,7 @@ public partial class WhatIsMy2FAForm : Form
             }
         }
 
-        if (e.Cancel) 
+        if (e.Cancel)
             RefreshTimer.Stop();
     }
 
@@ -332,4 +339,5 @@ public partial class WhatIsMy2FAForm : Form
         }
     }
     #endregion
+
 }

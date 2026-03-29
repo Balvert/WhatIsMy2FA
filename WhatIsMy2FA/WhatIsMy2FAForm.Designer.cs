@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WhatIsMy2FAForm));
             CodesListBox = new ListBox();
             menuStrip1 = new MenuStrip();
             loadToolStripMenuItem = new ToolStripMenuItem();
@@ -37,6 +38,7 @@
             AddQRCodeMenuItem = new ToolStripMenuItem();
             CopySecretMenuItem = new ToolStripMenuItem();
             DeleteMenuItem = new ToolStripMenuItem();
+            AboutMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { loadToolStripMenuItem, AddQRCodeMenuItem, CopySecretMenuItem, DeleteMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { loadToolStripMenuItem, AddQRCodeMenuItem, CopySecretMenuItem, DeleteMenuItem, AboutMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -108,6 +110,13 @@
             DeleteMenuItem.Text = "Delete";
             DeleteMenuItem.Click += DeleteMenuItem_Click;
             // 
+            // AboutMenuItem
+            // 
+            AboutMenuItem.Name = "AboutMenuItem";
+            AboutMenuItem.Size = new Size(52, 20);
+            AboutMenuItem.Text = "About";
+            AboutMenuItem.Click += AboutMenuItem_Click;
+            // 
             // WhatIsMy2FAForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -115,6 +124,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(CodesListBox);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "WhatIsMy2FAForm";
             Text = "What is my 2FA";
@@ -136,5 +146,6 @@
         private ToolStripMenuItem SaveFileAsMenuItem;
         private ToolStripMenuItem CopySecretMenuItem;
         private ToolStripMenuItem DeleteMenuItem;
+        private ToolStripMenuItem AboutMenuItem;
     }
 }
