@@ -32,7 +32,7 @@
             SaveButton = new Button();
             QRCodeTextBox = new TextBox();
             label1 = new Label();
-            CancelButton = new Button();
+            FormCancelButton = new Button();
             SuspendLayout();
             // 
             // PastButton
@@ -75,16 +75,16 @@
             label1.TabIndex = 3;
             label1.Text = "Paste your QR Code here:";
             // 
-            // CancelButton
+            // FormCancelButton
             // 
-            CancelButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            CancelButton.Location = new Point(467, 56);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(75, 23);
-            CancelButton.TabIndex = 4;
-            CancelButton.Text = "Cancel";
-            CancelButton.UseVisualStyleBackColor = true;
-            CancelButton.Click += CancelButton_Click;
+            FormCancelButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            FormCancelButton.Location = new Point(467, 56);
+            FormCancelButton.Name = "FormCancelButton";
+            FormCancelButton.Size = new Size(75, 23);
+            FormCancelButton.TabIndex = 4;
+            FormCancelButton.Text = "Cancel";
+            FormCancelButton.UseVisualStyleBackColor = true;
+            FormCancelButton.Click += CancelButton_Click;
             // 
             // AddQRCodeForm
             // 
@@ -92,7 +92,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 88);
             ControlBox = false;
-            Controls.Add(CancelButton);
+            Controls.Add(FormCancelButton);
             Controls.Add(label1);
             Controls.Add(QRCodeTextBox);
             Controls.Add(SaveButton);
@@ -111,6 +111,6 @@
         private Button SaveButton;
         private TextBox QRCodeTextBox;
         private Label label1;
-        private Button CancelButton;
+        private Button FormCancelButton;
     }
 }
