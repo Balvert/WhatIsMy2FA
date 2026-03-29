@@ -30,3 +30,6 @@ https://www.nuget.org/packages/Otp.NET
 
 ## License
 This project has no license and can be used for personal use.
+
+<img width="622" height="356" alt="image" src="https://github.com/user-attachments/assets/2e78a163-f324-4903-8608-20048c5aaae4" />
+
